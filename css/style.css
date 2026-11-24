@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════════════════════
+   RIMU — bird park · whenua hou, new zealand
+   shared styles · v6 "window"
+   concept, design & code by ghostly.grl ♥
+
+   black like the inside of a hut at night. the island is always
+   seen through a window: a photo, a thin cream frame, round corners.
+   a thin tall serif for the names, a small sans for everything else,
+   and one orange: the koru, the fern that hasn't opened yet.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --ink:#0a0a09; --ink-2:#141412; --cream:#f2ecdc; --cream-2:#d8d0bc; --mute:#8f8a7e; --line:rgba(242,236,220,.22);
+  --orange:#e8821e; --leaf:#2f4a2c;
+  --serif:'Italiana','Times New Roman',serif; --sans:'Inter Tight',system-ui,sans-serif; --script:'Pinyon Script',cursive;
+  --pad:clamp(14px,2.2vw,34px); --gut:clamp(10px,1.1vw,16px); --r:clamp(12px,1.3vw,20px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);color:var(--cream);-webkit-font-smoothing:antialiased}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font:400 15px/1.5 var(--sans);background:var(--ink);overflow-x:hidden}
+@media (hover:hover) and (pointer:fine){html,a,button{cursor:none}}
+img,svg{display:block}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit;background:none;border:0;outline:0}
+::selection{background:var(--orange);color:var(--ink)}
+.lbl{font:500 11px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.h2{font:400 clamp(44px,6vw,104px)/.95 var(--serif);letter-spacing:-.01em}
+
+/* ═══════════════ the window: a photo in a thin cream frame ═══════════════ */
+.win{position:relative;overflow:hidden;border:1.5px solid var(--cream);border-radius:var(--r);background:var(--ink-2);isolation:isolate}
+.win>.slot{position:absolute;inset:0}
+.win-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,9,.62),rgba(10,10,9,.12) 26%,transparent 50%,rgba(10,10,9,.62))}
+
+/* the postcard: a cream strip, a photo, a cream strip (copied from the eagle's nest corner card) */
+.pc{display:flex;flex-direction:column;background:var(--cream);color:var(--ink);border-radius:4px;overflow:hidden;text-align:left}
+.pc-s{display:flex;justify-content:space-between;gap:12px;padding:7px 9px;font:500 11px/1 var(--sans);letter-spacing:.01em;text-transform:uppercase}
+.pc-s b{font-weight:500}
+.pc-img{position:relative;display:block;flex:1;margin:0 3px;border-radius:2px;overflow:hidden}
+
+/* ═══════════════ image slots ═══════════════ */
+.slot{position:relative;overflow:hidden;display:block;background:radial-gradient(ellipse 90% 80% at 40% 30%,var(--t1),var(--t2) 85%)}
+.slot{--t1:#3b5a35;--t2:#121a10;--lab:#c9d6b8}
+.slot[data-tone="sea"]{--t1:#3b5f63;--t2:#0f1a1c;--lab:#cfe3e0}
+.slot[data-tone="sun"]{--t1:#9a7a3e;--t2:#231a0d;--lab:#f6e2b3}
+.slot[data-tone="night"]{--t1:#1f2a3a;--t2:#07090d;--lab:#b8c4d8}
+.slot::after{content:attr(data-label);position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);z-index:3;text-align:center;font:400 10px/1.4 var(--sans);letter-spacing:.02em;color:var(--lab);opacity:.8;pointer-events:none}
+.slot.has-img::after,.slot.no-label::after{display:none}
+.slot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);z-index:1}
+
+/* ═══════════════ top bar (after the first window) ═══════════════ */
+.top{position:fixed;left:var(--gut);right:var(--gut);top:var(--gut);z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:10px 12px 10px 10px;border:1.5px solid var(--line);border-radius:60px;background:rgba(10,10,9,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transform:translateY(-140%);transition:transform .7s var(--ease)}
+.top.show{transform:none}
+.top.show.away{transform:translateY(-140%)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{width:30px;height:30px}
+.logo b{font:400 20px/1 var(--serif);letter-spacing:.12em}
+.nav{display:flex;gap:clamp(16px,2.4vw,40px);font:400 13px/1 var(--sans)}
+.nav a{position:relative;transition:color .3s;color:var(--cream-2)}
+.nav a:hover,.nav a.here{color:var(--cream)}
+.nav a::after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.nav a:hover::after{transform:scaleX(1)}
+.top-r{display:flex;justify-content:flex-end;align-items:center;gap:16px}
+.book,.hh-book{display:inline-flex;align-items:center;padding:9px 16px;border:1px solid var(--cream);border-radius:6px;font:500 12px/1 var(--sans);transition:background .3s,color .3s}
+.book:hover,.hh-book:hover{background:var(--cream);color:var(--ink)}
+.snd{font:400 13px var(--sans);color:var(--cream-2);transition:color .3s}
+.snd:hover,.snd.on{color:var(--orange)}
+.mbtn{display:none}
+
+/* ═══════════════ cursor: a small cream dot, a word next to it ═══════════════ */
+.cur{position:fixed;left:0;top:0;z-index:200;pointer-events:none}
+.cur i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--cream);mix-blend-mode:difference;transition:transform .4s var(--ease),background .3s}
+.cur.big i{transform:scale(1.6);background:var(--orange);mix-blend-mode:normal}
+.cur span{position:absolute;left:16px;top:-7px;padding:4px 7px;border-radius:3px;background:var(--cream);color:var(--ink);font:500 10.5px/1 var(--sans);text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .4s var(--ease)}
+.cur span::before{content:attr(data-t)}
+.cur.big span{opacity:1;transform:none}
+@media not ((hover:hover) and (pointer:fine)){.cur{display:none}}
+
+/* ═══════════════ buttons ═══════════════ */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:12px 18px;border-radius:6px;border:1px solid var(--cream);font:500 12px/1 var(--sans);transition:background .4s,color .4s}
+.btn::after{content:'→'}
+.btn:hover{background:var(--cream);color:var(--ink)}
+
+/* ═══════════════ footer ═══════════════ */
+.ft{padding:16vh var(--pad) var(--pad);border-top:1.5px solid var(--line);margin-top:10vh}
+.ft-big{font:400 clamp(140px,31vw,560px)/.74 var(--serif);letter-spacing:-.02em;text-align:center;margin:0 -.02em}
+.ft-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:12vh 0 8vh;font-size:14px;color:var(--cream-2)}
+.ft-cols h5{font:500 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.ft-cols a{display:block;transition:color .3s}.ft-cols a:hover{color:var(--orange)}
+.ft-note{font-size:13px;color:var(--mute)}
+.ft-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;font:500 11px/1.5 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.ft-sign{font:400 clamp(30px,2.8vw,46px)/1 var(--script);letter-spacing:0;text-transform:none;color:var(--cream)}
+.ft-sign i{font-style:normal;color:var(--orange);font-family:var(--sans);font-size:.45em;vertical-align:middle}
+
+/* toast + konami */
+.toast{position:fixed;left:50%;bottom:var(--pad);transform:translateX(-50%);z-index:150;display:flex;flex-direction:column;min-width:260px;background:var(--cream);color:var(--ink);border-radius:4px;overflow:hidden;visibility:hidden;opacity:0;font:500 11px/1 var(--sans);text-transform:uppercase}
+.toast b{display:block;padding:7px 9px;background:var(--orange);font-weight:500}
+.toast span{display:block;padding:10px 9px 9px;font:400 22px/1.1 var(--serif);text-transform:none}
+.boomall{position:fixed;inset:0;z-index:140;pointer-events:none;overflow:hidden;visibility:hidden}
+.boomall i{position:absolute;top:-10px;width:9px;height:9px;border-radius:50%;background:#d9342b}
+.boomall p{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font:400 clamp(34px,5.4vw,90px)/1 var(--serif)}
+
+/* ═══════════════ loader: the window draws itself ═══════════════ */
+.loader{position:fixed;inset:0;z-index:300;background:var(--ink);display:grid;place-items:center}
+.ld-frame{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ld-frame rect{fill:none;stroke:var(--cream);stroke-width:1.5}
+.ld-mark svg{width:64px;height:64px}
+.ld-s{position:absolute;left:0;right:0;bottom:calc(var(--pad) * 1.2);text-align:center;font:500 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+
+@media (max-width:900px){
+  .top{grid-template-columns:1fr auto;transform:none;border-radius:14px}
+  .nav{position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;gap:22px;font:400 44px var(--serif);background:var(--ink);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;z-index:-1}
+  .nav-open .nav{opacity:1;visibility:visible}
+  .book{display:none}
+  .mbtn{display:block;font:500 12px var(--sans);text-transform:uppercase}
+  .ft-cols{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

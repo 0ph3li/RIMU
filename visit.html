@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  RIMU — bird park · whenua hou, new zealand
+  visit · v6 "window"
+
+  how to get to the island. the live card in the window is real:
+  island time, the next ferry, and the weather out there right now
+  (open-meteo). then the crossing minute by minute, the bag check
+  you turn card by card, and a boarding pass that fills itself.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visit — RIMU bird park · whenua hou</title>
+<meta name="description" content="how to visit rimu bird park on whenua hou: the ferry from bluff, the bag check at the jetty, tickets, huts and questions.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="pg-visit">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="koru" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="20" fill="#e8821e"/>
+      <path d="M13 33 C12.5 22 14.5 10 24 10 C31 10 32 19 26.5 21 C22 22.6 19.5 18 22.5 16 C24.5 14.8 26 16.8 24.6 18" fill="none" stroke="#0a0a09" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-frame"><rect/></svg>
+    <span class="ld-mark"><svg viewBox="0 0 40 40"><use href="#koru"/></svg></span>
+    <p class="ld-s">visit · ferry from bluff</p>
+  </div>
+
+  <div class="cur" aria-hidden="true"><i></i><span></span></div>
+
+  <header class="top">
+    <a class="logo" href="index.html" data-cur="home"><svg viewBox="0 0 40 40"><use href="#koru"/></svg><b>RIMU</b></a>
+    <nav class="nav" aria-label="main">
+      <a href="birds.html" data-cur="fourteen of them">The birds</a>
+      <a href="trails.html" data-cur="four walks">Trails</a>
+      <a href="adopt.html" data-cur="one bird, one year">Adopt</a>
+      <a href="visit.html" data-cur="ferry + tickets">Visit</a>
+    </nav>
+    <div class="top-r">
+      <a class="book" href="#tickets" data-magnetic data-cur="ferry 08:30">Tickets</a>
+      <button class="mbtn" type="button">menu</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═════ 1 · the window, with the island right now ═════ -->
+    <section class="ph">
+      <div class="win ph-win">
+        <span class="slot" data-img="VISIT/v3.jpg" data-note="the island from the sea" data-tone="sea"></span>
+        <div class="win-shade"></div>
+        <p class="lbl ph-k">Visit · ferry from Bluff · 40 min</p>
+        <p class="ph-r"><b>Open every day</b> 08:00 – 18:00<br>last ferry back 18:20</p>
+        <h1 class="ph-t"><span class="ph-sub">a ferry, a jetty, a gate, and then the birds</span><span>COME OVER</span></h1>
+        <div class="pc ph-card">
+          <span class="pc-s"><b>ON THE ISLAND NOW</b><b class="lv-open">—</b></span>
+          <div class="ph-live">
+            <div><span class="k">island time</span><b class="lv-t">—</b></div>
+            <div><span class="k">next ferry from bluff</span><b class="lv-f">—</b></div>
+            <div><span class="k">outside</span><b class="lv-w">—</b></div>
+            <div><span class="k">wind</span><b class="lv-v">—</b></div>
+          </div>
+          <span class="pc-s"><b class="lv-sky">—</b><a href="#tickets" data-cur="book">TICKETS →</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════ 2 · the crossing, minute by minute ═════ -->
+    <section class="jr" id="crossing">
+      <div class="jr-pin">
+        <div class="jr-head">
+          <div>
+            <p class="lbl" style="margin-bottom:18px">01 — how you get here</p>
+            <h2 class="h2">The crossing.</h2>
+          </div>
+          <p class="jr-clock">08:10<small>bluff</small></p>
+        </div>
+        <div class="jr-track"></div>
+        <div class="jr-line"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ═════ 3 · the bag check ═════ -->
+    <section class="bg" id="bag">
+      <div class="sh">
+        <div>
+          <p class="lbl">02 — the bag check</p>
+          <h2 class="h2">What can come<br>to the island?</h2>
+        </div>
+        <p class="sh-p">One mouse would be enough to empty the island. So the ranger opens every bag at the jetty. Guess first, then turn the card.</p>
+      </div>
+      <div class="bg-grid"></div>
+      <p class="bg-sc"><span><b class="bg-n">0</b> / 10 checked</span><span class="bg-v">turn them all</span></p>
+    </section>
+
+    <!-- ═════ 4 · tickets: the boarding pass ═════ -->
+    <section class="tx" id="tickets">
+      <div class="sh">
+        <div>
+          <p class="lbl">03 — tickets</p>
+          <h2 class="h2">Ferry + park,<br>one ticket.</h2>
+        </div>
+        <p class="sh-p">Two hundred people a day at most, so book. The ticket is the boarding pass: show it at the blue shed in Bluff.</p>
+      </div>
+      <div class="tx-grid">
+        <form class="tx-form" onsubmit="return false">
+          <span class="k">day</span>
+          <div class="tx-row tx-days"></div>
+          <span class="k">ferry out · from bluff</span>
+          <div class="tx-row tx-out"><button type="button" class="on">08:30</button><button type="button">10:30</button><button type="button">12:30</button></div>
+          <span class="k">ferry back · from the island</span>
+          <div class="tx-row tx-back"><button type="button">15:20</button><button type="button" class="on">17:00</button><button type="button">18:20</button></div>
+          <span class="k">who's coming</span>
+          <div class="tx-ppl">
+            <div><span>Adults<small> · NZ$ 32</small></span><p><button type="button" data-k="ad" data-d="-1" aria-label="fewer adults">−</button><b class="tx-ad">2</b><button type="button" data-k="ad" data-d="1" aria-label="more adults">+</button></p></div>
+            <div><span>Kids<small> · NZ$ 16</small></span><p><button type="button" data-k="kd" data-d="-1" aria-label="fewer kids">−</button><b class="tx-kd">0</b><button type="button" data-k="kd" data-d="1" aria-label="more kids">+</button></p></div>
+          </div>
+          <span class="k">stay the night? · then you take the 10:00 ferry next day</span>
+          <div class="tx-row tx-hut"><button type="button" class="on" data-p="0">No, day trip</button><button type="button" data-p="140"><span>NZ$ 140</span>Fern</button><button type="button" data-p="150"><span>NZ$ 150</span>Tide</button><button type="button" data-p="180"><span>NZ$ 180</span>Rimu</button><button type="button" data-p="260"><span>NZ$ 260</span>Ridge</button></div>
+        </form>
+        <div class="tx-pass">
+          <div class="pc">
+            <span class="pc-s"><b>BOARDING PASS · FERRY + PARK</b><b class="tx-no">RM —</b></span>
+            <span class="pc-img"><span class="slot" data-img="VISIT/hero.jpg" data-note="the jetty" data-tone="sea"></span><span class="tx-pass-t">BLUFF → RIMU</span></span>
+            <div class="tx-fields">
+              <div><span class="k">date</span><b class="tf-d">—</b></div>
+              <div><span class="k">out</span><b class="tf-o">—</b></div>
+              <div><span class="k">back</span><b class="tf-b">—</b></div>
+              <div><span class="k">adults</span><b class="tf-a">—</b></div>
+              <div><span class="k">kids</span><b class="tf-k">—</b></div>
+              <div><span class="k">hut</span><b class="tf-h">—</b></div>
+            </div>
+            <div class="tx-stub"><div class="tx-bars"></div><p class="tx-tot"><small>total NZ$</small><span>—</span></p></div>
+            <button class="tx-go" type="button" data-cur="book it">Book the crossing →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════ 5 · questions ═════ -->
+    <section class="qa">
+      <div class="sh">
+        <div>
+          <p class="lbl">04 — before you ask</p>
+          <h2 class="h2">Questions.</h2>
+        </div>
+      </div>
+      <ul class="qa-list"></ul>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <p class="ft-big">RIMU</p>
+    <div class="ft-cols">
+      <div><h5>the park</h5><p>Whenua Hou, off Rakiura<br>New Zealand</p></div>
+      <div><h5>pages</h5><a href="birds.html">The birds</a><a href="trails.html">Trails</a><a href="adopt.html">Adopt</a><a href="visit.html">Visit</a></div>
+      <div><h5>open</h5><p>Every day 08:00 – 18:00<br>Last ferry 18:20</p></div>
+      <div><h5>a note</h5><p class="ft-note">Rimu is a concept. Whenua Hou is a real nature reserve, closed to visitors; the real kākāpō recovery is run by the Department of Conservation and Ngāi Tahu. Photos and recordings belong to their authors (credits above and in the readme).</p></div>
+    </div>
+    <div class="ft-bot">
+      <span>learn the birds,<br>then let them be</span>
+      <p class="ft-sign">ghostly.grl <i>♥</i></p>
+      <span style="text-align:right">design &amp; code<br>by ghostly.grl</span>
+    </div>
+  </footer>
+
+  <div class="toast" aria-live="polite"></div>
+  <div class="boomall" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/visit.js"></script>
+</body>
+</html>
+<!--
+              .-"""-.
+             / .   . \          RIMU · visit
+            |  (o_o)  |         ferry 08:30 from bluff. scrub your boots.
+             \ \___/ /          learn the birds, then let them be.
+              `-...-´
+                                              /\_/\
+                                             ( o.o )   the cat is not allowed
+                                              > ^ <    in the park. ever.
+                                             (")_(")
+
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+-->

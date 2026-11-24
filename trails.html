@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  RIMU — bird park · whenua hou, new zealand
+  trails · v6 "window"
+
+  four walks on one island, thirteen stops. the map draws itself
+  while you scroll: the orange dot is you, the window shows what
+  you'd see at that stop. then six promises before you go.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trails — RIMU bird park · whenua hou</title>
+<meta name="description" content="four walks on whenua hou: the estuary, the boardwalk, the meadow and the ridge. walk the map by scrolling, stop by stop.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="pg-trails">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="koru" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="20" fill="#e8821e"/>
+      <path d="M13 33 C12.5 22 14.5 10 24 10 C31 10 32 19 26.5 21 C22 22.6 19.5 18 22.5 16 C24.5 14.8 26 16.8 24.6 18" fill="none" stroke="#0a0a09" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-frame"><rect/></svg>
+    <span class="ld-mark"><svg viewBox="0 0 40 40"><use href="#koru"/></svg></span>
+    <p class="ld-s">trails · four walks</p>
+  </div>
+
+  <div class="cur" aria-hidden="true"><i></i><span></span></div>
+
+  <header class="top">
+    <a class="logo" href="index.html" data-cur="home"><svg viewBox="0 0 40 40"><use href="#koru"/></svg><b>RIMU</b></a>
+    <nav class="nav" aria-label="main">
+      <a href="birds.html" data-cur="fourteen of them">The birds</a>
+      <a href="trails.html" data-cur="four walks">Trails</a>
+      <a href="adopt.html" data-cur="one bird, one year">Adopt</a>
+      <a href="visit.html" data-cur="ferry + tickets">Visit</a>
+    </nav>
+    <div class="top-r">
+      <a class="book" href="visit.html#tickets" data-magnetic data-cur="ferry 08:30">Tickets</a>
+      <button class="mbtn" type="button">menu</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═════ 1 · the window ═════ -->
+    <section class="ph">
+      <div class="win ph-win">
+        <span class="slot" data-img="TRAILS/hero.jpg" data-note="the island from the ridge"></span>
+        <div class="win-shade"></div>
+        <p class="lbl ph-k">Trails · 4 walks · 9 km in all</p>
+        <p class="ph-r"><b>Island time</b> <span class="nz-t">—</span><br><span class="tr-light">—</span></p>
+        <h1 class="ph-t"><span class="ph-sub">you pick one, the birds pick the rest</span><span>FOUR WALKS</span></h1>
+        <div class="pc ph-card">
+          <span class="pc-s"><b>WHICH ONE TODAY?</b><b>01 — 04</b></span>
+          <div class="ph-in">
+            <button type="button" data-go="0" data-cur="walk it">The estuary <span>40 min</span></button>
+            <button type="button" data-go="1" data-cur="walk it">The boardwalk <span>1 h 10</span></button>
+            <button type="button" data-go="2" data-cur="walk it">The meadow <span>50 min</span></button>
+            <button type="button" data-go="3" data-cur="walk it">The ridge <span>2 h</span></button>
+          </div>
+          <span class="pc-s"><b>ALL START AT THE JETTY</b><b>NO CARS</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════ 2 · the map: scroll and you walk it ═════ -->
+    <section class="mp" id="map">
+      <div class="sh">
+        <div>
+          <p class="lbl">01 — walk it from here</p>
+          <h2 class="h2">Scroll,<br>and you're walking.</h2>
+        </div>
+        <p class="sh-p">Four trails, thirteen stops. The orange dot is you. At every stop there's something to look at, and usually someone looking back.</p>
+      </div>
+      <div class="mp-pin">
+        <div class="mp-map">
+          <svg viewBox="60 50 500 480" aria-label="map of the island">
+            <g class="mp-seas"></g>
+            <path class="mp-land" d="M118 402 C92 360 98 300 128 262 C150 232 150 196 176 168 C204 138 250 128 286 104 C324 80 376 70 420 82 C466 94 500 122 508 166 C516 204 494 230 498 266 C502 306 530 330 518 372 C504 418 456 432 420 452 C382 474 352 500 304 496 C258 492 236 470 196 462 C160 455 136 436 118 402 Z"/>
+            <g class="mp-trs"></g>
+            <path class="mp-on" d=""/>
+            <g class="mp-sts"></g>
+            <circle class="mp-you-r" r="6"/><circle class="mp-you" r="6"/>
+            <g class="mp-lbls"></g>
+          </svg>
+          <div class="mp-k"><span class="lbl">Whenua Hou · 1 : 18 000</span><span class="lbl">N ↑</span></div>
+          <div class="mp-legend"><span><b class="mp-tn">Trail 01</b><br>the estuary</span><span><b class="mp-km">0.0 km</b><br>walked</span><span style="text-align:right"><b class="mp-sn">stop 1 / 13</b><br>keep scrolling</span></div>
+        </div>
+        <div class="win mp-win">
+          <div class="mp-imgs"></div>
+          <div class="win-shade"></div>
+          <div class="mp-top"><span class="mp-tk">Trail 01 <em>/ 04</em></span><span class="mp-tm">— </span></div>
+          <h3 class="mp-t">THE ESTUARY</h3>
+          <div class="pc mp-card">
+            <span class="pc-s"><b class="mp-ck">STOP 01</b><b class="mp-cw">—</b></span>
+            <p class="mp-cp">—</p>
+            <span class="pc-s"><b class="mp-cb">—</b><b class="mp-ci">1 / 13</b></span>
+          </div>
+          <div class="mp-bar"><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════ 3 · the walker's pact ═════ -->
+    <section class="pa" id="pact">
+      <div class="sh">
+        <div>
+          <p class="lbl">02 — before you walk</p>
+          <h2 class="h2">Six promises.<br>Tick them all.</h2>
+        </div>
+        <p class="sh-p">The island has no rats, no stoats, no cats. That's the only reason fourteen birds are still here. So we ask everyone the same six things at the jetty.</p>
+      </div>
+      <div class="pa-grid">
+        <ul class="pa-list"></ul>
+        <div class="pa-side">
+          <div class="win"><span class="slot" data-img="TRAILS/pack1.jpg" data-note="binoculars and a field guide"></span><div class="win-shade"></div><span class="pc-s"><b>BRING</b><b>BINOCULARS</b></span></div>
+          <div class="win"><span class="slot" data-img="TRAILS/pack2.jpg" data-note="muddy boots"></span><div class="win-shade"></div><span class="pc-s"><b>AND</b><b>CLEAN BOOTS</b></span></div>
+        </div>
+      </div>
+      <p class="pa-count"><b>0</b> / 6 promised</p>
+    </section>
+
+    <!-- ═════ 4 · next ═════ -->
+    <section class="nx">
+      <a class="win nx-win" href="visit.html" data-cur="ferry + tickets">
+        <span class="slot" data-img="TRAILS/r4.jpg" data-note="the top of the island"></span>
+        <div class="win-shade"></div>
+        <p class="lbl nx-k">Next · visit</p>
+        <h2 class="nx-t">TAKE THE FERRY</h2>
+        <span class="nx-go">08:30 from Bluff →</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <p class="ft-big">RIMU</p>
+    <div class="ft-cols">
+      <div><h5>the park</h5><p>Whenua Hou, off Rakiura<br>New Zealand</p></div>
+      <div><h5>pages</h5><a href="birds.html">The birds</a><a href="trails.html">Trails</a><a href="adopt.html">Adopt</a><a href="visit.html">Visit</a></div>
+      <div><h5>open</h5><p>Every day 08:00 – 18:00<br>Last ferry 18:20</p></div>
+      <div><h5>a note</h5><p class="ft-note">Rimu is a concept. Whenua Hou is a real nature reserve, closed to visitors; the real kākāpō recovery is run by the Department of Conservation and Ngāi Tahu. Photos and recordings belong to their authors (credits above and in the readme).</p></div>
+    </div>
+    <div class="ft-bot">
+      <span>learn the birds,<br>then let them be</span>
+      <p class="ft-sign">ghostly.grl <i>♥</i></p>
+      <span style="text-align:right">design &amp; code<br>by ghostly.grl</span>
+    </div>
+  </footer>
+
+  <div class="toast" aria-live="polite"></div>
+  <div class="boomall" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/trails.js"></script>
+</body>
+</html>
+<!--
+              .-"""-.
+             / .   . \          RIMU · trails
+            |  (o_o)  |         four walks, thirteen stops, one dot that is you.
+             \ \___/ /          learn the birds, then let them be.
+              `-...-´
+                                              /\_/\
+                                             ( o.o )   the cat is not allowed
+                                              > ^ <    in the park. ever.
+                                             (")_(")
+
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+-->
